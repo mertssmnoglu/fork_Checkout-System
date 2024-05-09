@@ -64,7 +64,7 @@ func (h *PromotionHandler) Create(c *gin.Context) {
 
 	response, createErr := h.promotionApp.Create(&entityData)
 	if createErr != nil {
-		c.JSON(500, gin.H{"message": err.Error()})
+		c.JSON(500, gin.H{"message": createErr.Error()})
 		return
 	}
 

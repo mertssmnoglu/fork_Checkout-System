@@ -97,7 +97,7 @@ func (h *CartHandler) ResetCart(c *gin.Context) {
 
 	cart, resetErr := h.cartApp.ResetCart(cartId)
 	if resetErr != nil {
-		c.JSON(500, gin.H{"message": err.Error()})
+		c.JSON(500, gin.H{"message": resetErr.Error()})
 		return
 	}
 
@@ -142,7 +142,7 @@ func (h *CartHandler) AddItem(c *gin.Context) {
 
 	item, addItemErr := h.cartApp.AddItem(cartId, itemEntity)
 	if addItemErr != nil {
-		c.JSON(500, gin.H{"message": err.Error()})
+		c.JSON(500, gin.H{"message": addItemErr.Error()})
 		return
 	}
 

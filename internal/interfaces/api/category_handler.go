@@ -63,7 +63,7 @@ func (h *CategoryHandler) Create(c *gin.Context) {
 
 	category, createErr := h.categoryApp.Create(&dataEntity)
 	if createErr != nil {
-		c.JSON(500, gin.H{"message": err.Error()})
+		c.JSON(500, gin.H{"message": createErr.Error()})
 		return
 	}
 
